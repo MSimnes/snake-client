@@ -1,3 +1,5 @@
+const { MOVE_UP_KEY, MESSAGES } = require("./constants");
+
 // initialize a connection variable for use in functions below
 let connection;
 // function accepts connect object
@@ -15,7 +17,7 @@ const handleUserInput = function(key) {
   case "\u0003":
     process.exit();
     break;
-  case "w":
+  case MOVE_UP_KEY:
     connection.write("Move: up");
     break;
   case "a":
@@ -27,17 +29,10 @@ const handleUserInput = function(key) {
   case "d":
     connection.write("Move: right");
     break;
-  case "t":
-    connection.write("Say: Kapow");
-    break;
-  case "u":
-    connection.write("Say: Hurry");
-    break;
-  case "p":
-    connection.write("Say: 2Slow");
-    break;
   default:
-    console.log("Invalid input");
+    if (MESSAGES[key]) {
+      connection.write(`Say: ${MESSAGES[key]}`);
+    } else console.log('Invalid input');
   }
 };
 
