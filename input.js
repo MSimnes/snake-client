@@ -1,4 +1,4 @@
-const { MOVE_UP_KEY, MESSAGES } = require("./constants");
+const { MOVE_UP_KEY, MOVE_DOWN_KEY, MOVE_LEFT_KEY, MOVE_RIGHT_KEY, MESSAGES } = require("./constants");
 
 // initialize a connection variable for use in functions below
 let connection;
@@ -20,13 +20,13 @@ const handleUserInput = function(key) {
   case MOVE_UP_KEY:
     connection.write("Move: up");
     break;
-  case "a":
+  case MOVE_LEFT_KEY:
     connection.write("Move: left");
     break;
-  case "s":
+  case MOVE_DOWN_KEY:
     connection.write("Move: down");
     break;
-  case "d":
+  case MOVE_RIGHT_KEY:
     connection.write("Move: right");
     break;
   default:
