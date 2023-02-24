@@ -4,7 +4,9 @@ const connect = function() {
     host: "localhost",
     port: 50541
   });
-  
+  conn.on("connect", () => {
+    console.log("Name: MLS");
+  });
   conn.setEncoding("utf8");
   conn.on("data", (data) => {
     console.log(data);
