@@ -17,19 +17,24 @@ const handleUserInput = function(key) {
     break;
   case "w":
     connection.write("Move: up");
-    console.log("Move: up");
     break;
   case "a":
     connection.write("Move: left");
-    console.log("Move: left");
     break;
   case "s":
     connection.write("Move: down");
-    console.log("Move: down");
     break;
   case "d":
     connection.write("Move: right");
-    console.log("Move: right");
+    break;
+  case "t":
+    connection.write("Say: Kapow");
+    break;
+  case "u":
+    connection.write("Say: Hurry");
+    break;
+  case "p":
+    connection.write("Say: 2Slow");
     break;
   default:
     console.log("Invalid input");
