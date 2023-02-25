@@ -65,13 +65,17 @@ class RemoteInterface {
     // *** My new code **
     if (this.clients.length > 1) {
       // broadcast message to all users
-      this.broadcast("A new player has joined the joined the game\n")
-      this.broadcast(`There are now ${this.clients.length} players in the game`)
+      this.broadcast("A new player has joined the joined the game\n");
+      this.broadcast(`There are now ${this.clients.length} players in the game`);
     }
     // *** end of new code added **
+
+
     client.on('data', this.handleClientData.bind(this, client))
     client.on('end', this.handleClientEnded.bind(this, client))
   }
+
+
   // *** new code ** function to loop through clients array and write message to each
   broadcast(message) {
     for (const client of this.clients) {
@@ -91,12 +95,12 @@ class RemoteInterface {
     if (client.idleTimer) clearTimeout(client.idleTimer)
     if (this.clientEndHandler) this.clientEndHandler(client)
 
-    // *** new code added
+  // *** new code added
     // remove a client from clients array
     this.clients.pop();
     // display a message updating when a client has left and how many players are left
-    this.broadcast(`A client has left the game, there are now ${this.clients.length} players left`)
-    // *** end of new code added
+    this.broadcast(`A client has left the game, there are now ${this.clients.length} players left`);
+  // *** end of new code added
 
   }
 
