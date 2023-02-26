@@ -30,6 +30,9 @@ To play the game, one needs to implement the game server. In one terminal window
 
 ```bash
 
+# clone the repository
+git clone https://github.com/MSimnes/snake-client.git
+
 cd server
 
 # install and run via npm
