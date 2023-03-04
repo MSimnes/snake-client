@@ -16,14 +16,10 @@ let connection;
 const setupInput = function(conn) {
   connection = conn;
   const stdin = process.stdin;
-  // allow user input to stream in
   stdin.setRawMode(true);
   stdin.setEncoding("utf8");
-  // unpause process.stdin to listen for input in following line
   stdin.resume();
-  // take data from stdin and pass it as a parameter to handleUserInput function
   stdin.on("data", handleUserInput);
-  // return modified stdin object for use in play.js
   return stdin;
 };
 
@@ -52,7 +48,7 @@ const handleUserInput = function(key) {
   default:
     if (MESSAGES[key]) {
       connection.write(`Say: ${MESSAGES[key]}`);
-    } else console.log('Invalid input');
+    }
   }
 };
 
