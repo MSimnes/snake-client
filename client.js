@@ -23,7 +23,7 @@ const connect = function() {
    * @event connect
    */
   conn.on("connect", () => {
-    console.log("Name: MLS");
+    conn.write("Name: MLS");
   });
   
   /**
